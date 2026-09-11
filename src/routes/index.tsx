@@ -37,7 +37,7 @@ function Index() {
   const [email, setEmail] = useState("");
 
   return (
-    <main className="hero-bg hero-grid relative flex min-h-screen flex-col overflow-hidden px-5 py-6 sm:px-8 md:px-12 md:py-10 lg:px-16">
+    <main className="hero-bg hero-grid relative flex min-h-svh flex-col overflow-hidden px-5 py-5 sm:px-8 md:px-12 md:py-6 lg:h-svh lg:px-16">
       <header className="relative z-10 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
         <div className="flex min-w-0 items-center gap-4 sm:gap-6">
           <img
@@ -55,20 +55,20 @@ function Index() {
         </div>
       </header>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 items-center gap-10 py-10 md:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 items-center gap-8 py-8 md:py-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
         <section className="min-w-0">
-          <h2 className="text-[clamp(2rem,7vw,3.5rem)] font-bold leading-[1.08] tracking-tight">
+          <h2 className="text-[clamp(1.85rem,5.5vw,3.1rem)] font-bold leading-[1.08] tracking-tight">
             Um portal. Dois sistemas.
             <br />
             <span className="text-primary-glow">Uma visão completa.</span>
           </h2>
 
-          <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg md:text-xl">
+          <p className="mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
             Gerencie clientes do CSEmite e do CSEmp em uma única carteira — sem trocar de conta ou
             duplicar cadastros.
           </p>
 
-          <ul className="mt-8 space-y-4">
+          <ul className="mt-6 space-y-3">
             {highlights.map(({ icon: Icon, label }) => (
               <li key={label} className="flex items-center gap-4">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-surface-tile text-primary-glow">
@@ -80,7 +80,7 @@ function Index() {
           </ul>
         </section>
 
-        <section className="w-full rounded-[1.75rem] bg-card p-6 shadow-[var(--shadow-card)] sm:p-8 md:rounded-[2rem] md:p-10">
+        <section className="w-full rounded-[1.75rem] bg-card p-6 shadow-[var(--shadow-card)] sm:p-7 md:rounded-[2rem] md:p-8">
           <h3 className="text-2xl font-bold tracking-tight text-card-foreground sm:text-3xl">
             Acesso do escritório
           </h3>
@@ -89,7 +89,7 @@ function Index() {
           </p>
 
           <form
-            className="mt-7"
+            className="mt-5"
             onSubmit={(event) => {
               event.preventDefault();
             }}
@@ -121,7 +121,7 @@ function Index() {
             </button>
           </form>
 
-          <div className="mt-7 flex items-center gap-4">
+          <div className="mt-5 flex items-center gap-4">
             <span className="h-px flex-1 bg-card-foreground/10" />
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-glow/15 text-primary">
               <ShieldCheck className="h-5 w-5" />
