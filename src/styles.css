@@ -156,3 +156,36 @@
     color: var(--color-foreground);
   }
 }
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --color-primary-glow: var(--primary-glow);
+  --color-surface-tile: var(--surface-tile);
+}
+
+@utility hero-bg {
+  background-image: var(--gradient-hero);
+}
+
+@utility hero-grid {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 100% 0%, oklch(0.7 0.14 158 / 0.18), transparent 45%),
+      radial-gradient(circle at 0% 100%, oklch(0.7 0.14 158 / 0.12), transparent 45%);
+    pointer-events: none;
+  }
+}
+
+@utility btn-cta {
+  background-image: var(--gradient-cta);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  &:hover {
+    filter: brightness(1.07);
+    transform: translateY(-1px);
+  }
+}
