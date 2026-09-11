@@ -58,7 +58,7 @@ function Index() {
       <div className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 items-center gap-10 py-10 md:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <section className="min-w-0">
           <h2 className="text-[clamp(2rem,7vw,3.5rem)] font-bold leading-[1.08] tracking-tight">
-            <span className="xl:whitespace-nowrap">Um portal. Dois sistemas.</span>
+            Um portal. Dois sistemas.
             <br />
             <span className="text-primary-glow">Uma visão completa.</span>
           </h2>
