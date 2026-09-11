@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ArrowRight, Building2, Link2, Mail, ShieldCheck, Users } from "lucide-react";
 import csempLogo from "@/assets/csemp.png.asset.json";
 import csemiteLogo from "@/assets/csemite.png.asset.json";
+import csemiteMark from "@/assets/csemite-mark.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,7 +39,7 @@ function Index() {
   return (
     <main className="hero-bg hero-grid relative flex min-h-screen flex-col overflow-hidden px-6 py-8 md:px-14 md:py-10">
       <header className="relative z-10 flex items-center gap-4">
-        <img src={csemiteLogo.url} alt="CSEmite" className="h-11 w-11 object-contain" />
+        <img src={csemiteMark.url} alt="CSEmite" className="h-11 w-11 object-contain" />
         <div className="leading-tight">
           <h1 className="text-xl font-bold tracking-tight md:text-2xl">Portal de escritório</h1>
           <p className="text-sm text-muted-foreground">Contabilidade</p>
@@ -64,8 +65,8 @@ function Index() {
             </div>
           </div>
 
-          <h2 className="mt-9 text-4xl font-bold leading-[1.08] tracking-tight md:text-6xl">
-            Um portal. Dois sistemas.
+          <h2 className="mt-9 text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl xl:text-[3.4rem]">
+            <span className="xl:whitespace-nowrap">Um portal. Dois sistemas.</span>
             <br />
             <span className="text-primary-glow">Uma visão completa.</span>
           </h2>
