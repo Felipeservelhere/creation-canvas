@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, Building2, Link2, Mail, ShieldCheck, Users } from "lucide-react";
+import { ArrowRight, Building2, Mail, ShieldCheck, Users } from "lucide-react";
+import caloryLogo from "@/assets/calory.png.asset.json";
 import csempLogo from "@/assets/csemp.png.asset.json";
-import csemiteLogo from "@/assets/csemite.png.asset.json";
 import csemiteMark from "@/assets/csemite-mark.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -37,65 +37,59 @@ function Index() {
   const [email, setEmail] = useState("");
 
   return (
-    <main className="hero-bg hero-grid relative flex min-h-screen flex-col overflow-hidden px-6 py-8 md:px-14 md:py-10">
-      <header className="relative z-10 flex items-center gap-4">
-        <img src={csemiteMark.url} alt="CSEmite" className="h-11 w-11 object-contain" />
-        <div className="leading-tight">
-          <h1 className="text-xl font-bold tracking-tight md:text-2xl">Portal de escritório</h1>
-          <p className="text-sm text-muted-foreground">Contabilidade</p>
+    <main className="hero-bg hero-grid relative flex min-h-screen flex-col overflow-hidden px-5 py-6 sm:px-8 md:px-12 md:py-10 lg:px-16">
+      <header className="relative z-10 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
+        <div className="flex min-w-0 items-center gap-4 sm:gap-6">
+          <img
+            src={caloryLogo.url}
+            alt="Calory Sistemas"
+            className="h-10 w-auto shrink-0 sm:h-12 lg:h-14"
+          />
+          <span className="hidden h-10 w-px shrink-0 bg-foreground/20 sm:block lg:h-12" />
+          <div className="min-w-0 leading-tight">
+            <h1 className="truncate text-lg font-bold tracking-tight sm:text-xl lg:text-2xl">
+              Portal de escritório
+            </h1>
+            <p className="truncate text-xs text-muted-foreground sm:text-sm">Contabilidade</p>
+          </div>
         </div>
       </header>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 items-center gap-14 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
-        <section>
-          <div className="flex items-center gap-3">
-            <div className="flex h-20 items-center gap-2 rounded-2xl bg-card px-5 shadow-[var(--shadow-card)]">
-              <img src={csempLogo.url} alt="CSEmp" className="h-8 object-contain" />
-              <span className="h-2.5 w-2.5 rounded-full bg-primary-glow" />
-            </div>
-            <span className="h-px w-4 border-t border-dashed border-primary-glow/60" />
-            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-primary-glow/50 text-primary-glow">
-              <Link2 className="h-5 w-5" />
-            </span>
-            <span className="h-px w-4 border-t border-dashed border-primary-glow/60" />
-            <div className="flex h-20 items-center gap-2 rounded-2xl bg-card px-5 shadow-[var(--shadow-card)]">
-              <img src={csemiteLogo.url} alt="CSEmite" className="h-9 object-contain" />
-              <span className="text-lg font-semibold text-card-foreground">CSEmite</span>
-              <span className="h-2.5 w-2.5 rounded-full bg-primary-glow" />
-            </div>
-          </div>
-
-          <h2 className="mt-9 text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl xl:text-[3.4rem]">
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 items-center gap-10 py-10 md:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <section className="min-w-0">
+          <h2 className="text-[clamp(2rem,7vw,3.5rem)] font-bold leading-[1.08] tracking-tight">
             <span className="xl:whitespace-nowrap">Um portal. Dois sistemas.</span>
             <br />
             <span className="text-primary-glow">Uma visão completa.</span>
           </h2>
 
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground md:text-xl">
+          <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg md:text-xl">
             Gerencie clientes do CSEmite e do CSEmp em uma única carteira — sem trocar de conta ou
             duplicar cadastros.
           </p>
 
-          <ul className="mt-10 space-y-4">
+          <ul className="mt-8 space-y-4">
             {highlights.map(({ icon: Icon, label }) => (
               <li key={label} className="flex items-center gap-4">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-surface-tile text-primary-glow">
                   <Icon className="h-5 w-5" />
                 </span>
-                <span className="text-base md:text-lg">{label}</span>
+                <span className="min-w-0 text-sm sm:text-base md:text-lg">{label}</span>
               </li>
             ))}
           </ul>
         </section>
 
-        <section className="rounded-[2rem] bg-card p-8 shadow-[var(--shadow-card)] md:p-10">
-          <h3 className="text-3xl font-bold tracking-tight text-card-foreground">
+        <section className="w-full rounded-[1.75rem] bg-card p-6 shadow-[var(--shadow-card)] sm:p-8 md:rounded-[2rem] md:p-10">
+          <h3 className="text-2xl font-bold tracking-tight text-card-foreground sm:text-3xl">
             Acesso do escritório
           </h3>
-          <p className="mt-1 text-base text-card-foreground/60">Use seu e-mail para continuar</p>
+          <p className="mt-1 text-sm text-card-foreground/60 sm:text-base">
+            Use seu e-mail para continuar
+          </p>
 
           <form
-            className="mt-8"
+            className="mt-7"
             onSubmit={(event) => {
               event.preventDefault();
             }}
@@ -103,8 +97,8 @@ function Index() {
             <label htmlFor="email" className="text-sm font-semibold text-card-foreground">
               E-mail
             </label>
-            <div className="mt-2 flex items-center gap-3 rounded-2xl border border-card-foreground/10 bg-background/[0.03] px-4 py-3.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-card-foreground/10 text-card-foreground/60">
+            <div className="mt-2 flex items-center gap-3 rounded-2xl border border-card-foreground/10 bg-background/[0.03] px-3 py-3 sm:px-4 sm:py-3.5">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-card-foreground/10 text-card-foreground/60">
                 <Mail className="h-4 w-4" />
               </span>
               <input
@@ -114,7 +108,7 @@ function Index() {
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="contato@escritorio.com.br"
-                className="w-full bg-transparent text-base text-card-foreground outline-none placeholder:text-card-foreground/40"
+                className="w-full min-w-0 bg-transparent text-base text-card-foreground outline-none placeholder:text-card-foreground/40"
               />
             </div>
 
@@ -123,13 +117,13 @@ function Index() {
               className="btn-cta mt-5 flex w-full items-center justify-center gap-3 rounded-2xl px-6 py-4 text-base font-bold"
             >
               Continuar
-              <ArrowRight className="h-5 w-5" />
+              <ArrowRight className="h-5 w-5 shrink-0" />
             </button>
           </form>
 
-          <div className="mt-8 flex items-center gap-4">
+          <div className="mt-7 flex items-center gap-4">
             <span className="h-px flex-1 bg-card-foreground/10" />
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-glow/15 text-primary">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-glow/15 text-primary">
               <ShieldCheck className="h-5 w-5" />
             </span>
             <span className="h-px flex-1 bg-card-foreground/10" />
@@ -137,14 +131,20 @@ function Index() {
         </section>
       </div>
 
-      <footer className="relative z-10 mx-auto flex w-full max-w-6xl flex-wrap items-end justify-between gap-6">
-        <div>
-          <span className="block h-px w-10 bg-primary-glow" />
-          <p className="mt-3 text-xs uppercase tracking-[0.28em] text-muted-foreground">
-            Contabilidade mais simples
-            <br />
-            para grandes resultados
+      <footer className="relative z-10 mx-auto grid w-full max-w-6xl gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
+        <div className="min-w-0">
+          <p className="text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground">
+            Esta área atende a estes sistemas Calory
           </p>
+          <div className="mt-3 flex flex-wrap items-center gap-2.5">
+            <span className="flex items-center gap-2 rounded-xl bg-card px-3 py-2">
+              <img src={csempLogo.url} alt="CSEmp" className="h-4 w-auto object-contain" />
+            </span>
+            <span className="flex items-center gap-2 rounded-xl bg-card px-3 py-2">
+              <img src={csemiteMark.url} alt="" className="h-5 w-5 object-contain" />
+              <span className="text-sm font-semibold text-card-foreground">CSEmite</span>
+            </span>
+          </div>
         </div>
         <nav className="flex items-center gap-3 text-sm text-muted-foreground">
           <a href="/privacidade" className="transition-colors hover:text-foreground">
