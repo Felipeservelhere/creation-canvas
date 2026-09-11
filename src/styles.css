@@ -62,21 +62,35 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --radius: 1rem;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Portal do escritório — deep teal/green environment */
+  --background: oklch(0.19 0.045 175);
+  --foreground: oklch(0.98 0.005 175);
+  --card: oklch(0.98 0.004 150);
+  --card-foreground: oklch(0.2 0.03 175);
+  --popover: oklch(0.98 0.004 150);
+  --popover-foreground: oklch(0.2 0.03 175);
+  --primary: oklch(0.55 0.13 158);
+  --primary-foreground: oklch(0.99 0.01 150);
+  --primary-glow: oklch(0.72 0.16 158);
+  --secondary: oklch(0.26 0.05 175);
+  --secondary-foreground: oklch(0.97 0.01 175);
+  --muted: oklch(0.26 0.045 175);
+  --muted-foreground: oklch(0.75 0.02 175);
+  --accent: oklch(0.72 0.16 158);
+  --accent-foreground: oklch(0.18 0.04 175);
+  --surface-tile: oklch(0.27 0.05 172);
+  --gradient-hero: radial-gradient(
+      120% 90% at 85% 15%,
+      oklch(0.32 0.09 168 / 0.55),
+      transparent 60%
+    ),
+    linear-gradient(155deg, oklch(0.21 0.05 178), oklch(0.15 0.035 180) 55%, oklch(0.18 0.05 168));
+  --gradient-cta: linear-gradient(120deg, oklch(0.48 0.13 158), oklch(0.6 0.15 158));
+  --shadow-card: 0 30px 80px -30px oklch(0.1 0.04 175 / 0.85);
+  --shadow-glow: 0 18px 40px -18px oklch(0.6 0.15 158 / 0.6);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.929 0.013 255.508);
@@ -140,5 +154,39 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --color-primary-glow: var(--primary-glow);
+  --color-surface-tile: var(--surface-tile);
+}
+
+@utility hero-bg {
+  background-image: var(--gradient-hero);
+}
+
+@utility hero-grid {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 100% 0%, oklch(0.7 0.14 158 / 0.18), transparent 45%),
+      radial-gradient(circle at 0% 100%, oklch(0.7 0.14 158 / 0.12), transparent 45%);
+    pointer-events: none;
+  }
+}
+
+@utility btn-cta {
+  background-image: var(--gradient-cta);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  &:hover {
+    filter: brightness(1.07);
+    transform: translateY(-1px);
   }
 }
